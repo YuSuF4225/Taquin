@@ -1,0 +1,178 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*** DEBUT DE LA FEUILLE DE STYLE ***/
+body {
+    --color1: #222;
+    --color2: #DDD;
+	--nb: 4;
+	--size: calc(60vmin / var(--nb));
+    background-color: var(--color2);
+	color: var(--color1);
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	transition-property: background-color, color;
+	transition-timing-function: ease;
+	transition-duration: 1s;
+}
+body.dark {
+    --color1: #DDD;
+    --color2: #222;
+}
+
+h1 {
+    font-size: 10vmin;
+	font-weight: bold;
+	text-align: center;
+	margin: 2vmin;
+	padding: 2vmin;
+}
+
+#grille {
+	margin: 5vmin auto;
+	border: solid 1vmin var(--color1);
+	--image: url("image1.png");
+}
+
+#grille td {
+    width: var(--size);
+	height: var(--size);
+}
+
+#grille td > div {
+	width: var(--size);
+	height: var(--size);
+	border: solid 1px var(--color1);
+	background-image: var(--image);
+	box-sizing: border-box;
+	background-size: calc(var(--nb) * var(--size));
+	cursor: pointer;
+	transition: border-color 1s ease 0s;
+}
+.hidden {
+	display: none;
+}
+
+#grille.completed td > div {
+	border-color: transparent;
+}
+#grille.completed .hidden {
+	display: block;
+}
+
+
+footer {
+	text-align: center;
+	width: calc(var(--nb) * calc(--size));
+	margin: 0 auto;
+	font-size: 3vmin;
+}
+footer button, input[type="submit"] {
+	margin-left: calc(1 * var(--size));
+	cursor: pointer;
+	font-size: 80%;
+	padding: 0.5vmin 1vmin;
+}
+div[data-number]:before {
+    content: attr(data-number);
+	color: yellow;
+	font-size: 4vmin;
+	text-shadow: 3px 3px 3px black;
+	opacity: 1;
+	padding: 1vmin;
+	display: none;	/* à commenter pour afficher le numéro de l'image (attribut data-number) */
+}
+
+
+form ~ * {
+	display: none;
+}
+form.hidden ~ footer {
+	display: block;
+}
+form.hidden ~ table {
+	display: table;
+}
+form {
+	width: 80vh;
+	margin: 5vw auto;
+	border: solid 0.2vw var(--color1);
+	border-radius: 1vw;
+	font-weight: normal;
+	padding: 1vw;
+	box-shadow: 1vw 1vw 1vw var(--color1);
+}
+
+form h2 {
+    font-size: 4vmin;
+	font-weight: bold;
+	text-align: center;
+	margin: 1vmin 2vmin;
+	padding: 1vmin;
+}
+
+form td {
+	padding: 1vmin;
+}
+form td:first-child {
+	text-align: right;
+	width: 49%;
+}
+
+form input {
+	color: var(--color1);
+	background-color: var(--color2);
+}
+form input[type="submit"] {
+	font: inherit;
+	margin: 1vw;
+}
+form td[colspan] {
+	text-align: center;
+	margin: 0;
+}

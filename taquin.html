@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="taquin.css">
+        <script src="taquin.js"></script>
+    </head>
+    <body>
+        <H1>Jeu de taquin</H1>
+        <form method="post">
+            <H2>Paramétrage de la partie</H2>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Votre pseudo :</td>
+                        <td><input type="text" value="" name="pseudo"></td>
+                    </tr>
+                    <tr>
+                        <td>Taille de la grille :</td>
+                        <td><input type="number" value="4" min="3" max="8" name="numSize"></td>
+                    </tr>
+                    <tr>
+                        <td>Image à reconstituer :</td>
+                        <td>
+                            <select name="selImage">
+                                <option value="image1.png">Le Grand Architecte (William Blake)</option>
+                                <option value="image2.jpg">L'Ecole d'Athènes (Raphaël)</option>
+                                <option value="image3.png">La Grande Vague de Kanagawa (Hokusai)</option>
+                            </select>
+                        </td>            
+                    </tr>
+                    <tr>
+                        <td>Système de score :</td>
+                        <td>
+                            <label><input type="radio" name="radScore" value="moves" checked>Nombre de coups</label>
+                            <label><input type="radio" name="radScore" value="time">Temps écoulé</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Réglage le plus important :</td>
+                        <td><label>Mode sombre <input type="checkbox" name="cbDarkmode"></label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" name="btnSubmit" value="Démarrer"></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </form>
+        <table id="grille"></table>
+        <footer>
+            Nombre de coups : <span id="score">0</span>
+            <button id="btnRestart">Recommencer</button>
+        </footer>
+    </body>
+</html>
